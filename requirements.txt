@@ -1,0 +1,18 @@
+# packages in environment at /Users/semyeong/anaconda/envs/webapp:
+#
+astropy                   0.4.2                np19py27_0  
+flask                     0.10.1                   py27_1  
+gunicorn                  19.1.0                   py27_0  
+itsdangerous              0.24                     py27_0  
+jinja2                    2.7.3                    py27_1  
+markupsafe                0.23                     py27_0  
+numpy                     1.9.0                    py27_0  
+openssl                   1.0.1h                        1  
+pastedeploy               1.5.2                    py27_1  
+python                    2.7.8                         1  
+readline                  6.2                           2  
+setuptools                5.8                      py27_0  
+sqlite                    3.8.4.1                       0  
+tk                        8.5.15                        0  
+werkzeug                  0.9.6                    py27_1  
+zlib                      1.2.7                         1  
