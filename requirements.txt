@@ -1,5 +1,6 @@
 # packages in environment at /Users/semyeong/anaconda/envs/webapp:
 #
+astropy==0.4.2
 flask==0.10.1
 gunicorn==19.1.0
 jinja2==2.7.3
