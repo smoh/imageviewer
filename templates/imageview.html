@@ -10,7 +10,9 @@
 <div class="row">
     <div class="col-lg-6">
         <h1>{{ ind }} {{iauname}}</h1>
-        <img src="{{IMGDIR}}{{ind}}.png" alt="" class="img-responsive">
+        {% for imgdir in IMGDIRS %}
+        <img src="{{imgdir}}{{ind}}.png" alt="" class="img-responsive">
+        {% endfor %}
     </div>
     <div class="col-lg-6">
 
