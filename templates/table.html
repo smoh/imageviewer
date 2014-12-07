@@ -1,0 +1,86 @@
+<table class="table table-bordered table-condensed">
+    <tbody>
+        <tr>
+          <td>IAUNAME</td>
+          <td>{{IAUNAME}}</td>
+        </tr>
+        <tr>
+            <td>Z</td>
+            <td>{{Z}}</td>
+        </tr>
+        <tr>
+            <td>sigma (km/s)</td>
+            <td>{{Sigma}}</td>
+        </tr>
+        <tr>
+            <td>CutoutSizeDeg</td>
+            <td>{{CutoutSizeDeg}}</td>
+        </tr>
+        <tr>
+            <td>CutoutFracArea</td>
+            <td>{{CutoutFracArea}}</td>
+        </tr>
+        <tr>
+          <td>FlagStamp</td>
+          <td>{{FlagStamp}}</td>
+        </tr>
+        <tr>
+          <td>FlagInvalidFit</td>
+          <td>{{FlagInvalidFit}}</td>
+        </tr>
+        <tr>
+          <td>FlagDoubleComp</td>
+          <td>{{FlagDoubleComp}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="table table-bordered table-condensed">
+<thead>
+  <th></th>
+  <th>Ser</th>
+  <th>deV</th>
+  <th>Exp</th>
+</thead>
+  <tbody>
+    <tr>
+      <th>n</th>
+      <td>{{'%.2f' % (Ser_n | float)}}</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Mag</th>
+      <td>{{Ser_Mag}}</td>
+      <td>{{deVExp_Mag_deV}}</td>
+      <td>{{deVExp_Mag_Exp}}</td>
+    </tr>
+    <tr>
+      <th>Re</th>
+      <td>{{Ser_Re}}</td>
+      <td>{{deVExp_Re_deV}}</td>
+      <td>{{deVExp_Re_Exp}}</td>
+    </tr>
+    <tr>
+      <th>q</th>
+      <td>{{Ser_q}}</td>
+      <td>{{deVExp_q_deV}}</td>
+      <td>{{deVExp_q_Exp}}</td>
+    </tr>
+    <tr>
+      <th>chisq</th>
+      <td>{{Ser_chi2}}</td>
+      <td colspan="2">{{deVExp_chi2}}</td>
+    </tr>
+    <tr>
+      <th>B/T</th>
+      <td></td>
+      <td colspan="2">{{deVExp_BT}}</td>
+    </tr>
+    <tr>
+      <th>Rcross</th>
+      <td></td>
+      <td colspan="2">{{deVExp_Rcross}}</td>
+    </tr>
+  </tbody>
+</table>

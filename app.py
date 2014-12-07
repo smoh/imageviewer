@@ -1,41 +1,32 @@
-from astropy.table import Table
-
 from flask import Flask, render_template, request, redirect
+import requests
+import csv
+from pager import Pager
 
 app = Flask(__name__)
 
-imgdir = "http://www.astro.princeton.edu/~semyeong/projects/ETGOutskirts/test2/fig/image/"
-profdir = "http://www.astro.princeton.edu/~semyeong/projects/ETGOutskirts/test2/fig/profile/"
-table = Table.read('s.fits')
+def read_table(url):
+    """Return a list of dict"""
+    r = requests.get(url)
+    lines = r.text.splitlines()
+    return [row for row in csv.DictReader(lines)]
 
-class Pager(object):
-    def __init__(self, count):
-        self.count = count
-        self.current = 0
+BASEURL = 'http://www.astro.princeton.edu/~semyeong/etgpublic'
+TABLEURL = BASEURL+'/db.csv'
+imgdir = BASEURL+'/image/'
+profdir = BASEURL+'/profile/'
 
-    @property
-    def next(self):
-        n = self.current + 1
-        if n > self.count-1:
-            n -= self.count
-        return n
-
-    @property
-    def prev(self):
-        n = self.current - 1
-        if n < 0 :
-            n += self.count
-        return n
-pager = Pager(len(table))
 
 @app.route('/')
-def hello_world():
-    return 'Index'
+def index():
+    return redirect('/0')
 
 @app.route('/<int:ind>/')
 def image_view(ind=None):
-    if ind >= len(table):
-        return "invalid index"
+    d = read_table(TABLEURL)
+    pager = Pager(len(d))
+    if ind >= pager.count:
+        return "invalid index", 404
     else:
         pager.current = ind
         return render_template(
@@ -43,9 +34,7 @@ def image_view(ind=None):
                 ind=ind,
                 imgdir=imgdir,
                 profdir=profdir,
-                iauname=table['IAUNAME'][ind],
-                subdir=table['SUBDIR'][ind],
-                pager=pager)
+                pager=pager, **d[ind])
 
 @app.route('/goto', methods=['POST', 'GET'])    
 def goto():
