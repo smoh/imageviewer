@@ -10,7 +10,8 @@
         </div>
         <div class="col-sm-4">
             <ul class="list-inline">
-                <li><a href="/">home</a></li>
+                <li><a href="/">home</a>
+                </li>
                 <li><a href="/{{pager.prev}}">prev</a> </li>
                 <li><a href="/{{pager.next}}">next</a> </li>
                 {% include 'links.html' %}
@@ -19,14 +20,18 @@
 
     </div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-5">
             <img src="{{profdir}}{{'%03i' % (ind)}}_{{IAUNAME}}.png" class="img-responsive" alt="">
         </div>
-        <div class="col-md-6">
-            {% include 'table.html' %}
-        </div>
-        <div class="col-lg-12">
-            <img src="{{imgdir}}{{'%03i' % (ind)}}_{{IAUNAME}}.png" alt="" class="img-responsive">
+        <div class="col-md-7">
+            <div class="row">
+                {% include 'table.html' %}
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <img src="{{imgdir}}{{'%03i' % (ind)}}_{{IAUNAME}}.png" alt="" class="img-responsive">
+                </div>
+            </div>
         </div>
     </div>
 </div>
