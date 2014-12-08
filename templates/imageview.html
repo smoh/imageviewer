@@ -8,13 +8,15 @@
                 <button type="submit">Go</button>
             </form>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-8">
             <ul class="list-inline">
                 <li><a href="/">home</a>
                 </li>
                 <li><a href="/{{pager.prev}}">prev</a> </li>
                 <li><a href="/{{pager.next}}">next</a> </li>
                 {% include 'links.html' %}
+                <!-- TODO -->
+                <li><a data-toggle="popover" title="README" data-content="readme">readme</a></li>
             </ul>
         </div>
 
@@ -35,4 +37,9 @@
         </div>
     </div>
 </div>
+<script>
+    $(function () {
+  $('[data-toggle="popover"]').popover()
+})
+</script>
 {% endblock %}
