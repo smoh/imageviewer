@@ -73,8 +73,8 @@
     </tr>
     <tr>
       <th>chisq</th>
-      <td>{{Ser_chi2}}</td>
-      <td colspan="2">{{deVExp_chi2}}</td>
+      <td class="{{"info" if Ser_chi2<deVExp_chi2 else ""}}">{{Ser_chi2}}</td>
+      <td colspan="2" class="{{"info" if Ser_chi2>deVExp_chi2 else ""}}">{{deVExp_chi2}}</td>
     </tr>
     <tr>
       <th>B/T</th>
