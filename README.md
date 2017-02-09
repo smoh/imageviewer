@@ -26,7 +26,10 @@ conda env create    # setup environment specified in environment.yml
 python app.py
 ```
 and point your browser to `localhost:5000`.
-This will show images inside `example/images/` directory with the related information in `fakecatalog.csv`.
+This will show images inside `example/images/` directory with the related information in `fakecatalog.csv`
+like this:
+
+![](screenshot.png)
 
 Configure static file paths in `app.py` and modify templates in `templates/`
 according to your needs. Flask uses the [jinja](http://jinja.pocoo.org/) template engine.
