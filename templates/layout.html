@@ -1,9 +1,10 @@
-<!doctype html>
+{# base template #}
+<!DOCTYPE html>
 <html>
 
 <head>
     {% block head %}
-    <title>{% block title %}{% endblock %} - GalView</title>
+    <title>{% block title %}{% endblock %} - {{ config.APPNAME }}</title>
     {% endblock %}
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -18,9 +19,6 @@
 
 <body>
     <div id="content">{% block content %}{% endblock %}</div>
-    <div id="footer">
-
-    </div>
 </body>
 
 </html>

@@ -1,46 +1,52 @@
-from flask import Flask, render_template, request, redirect
-import requests
 import csv
+from flask import Flask, render_template, request, redirect, url_for
+import requests
 from pager import Pager
 
-app = Flask(__name__)
 
 def read_table(url):
     """Return a list of dict"""
-    r = requests.get(url)
-    lines = r.text.splitlines()
-    return [row for row in csv.DictReader(lines)]
+    # r = requests.get(url)
+    with open(url) as f:
+        return [row for row in csv.DictReader(f.readlines())]
 
-BASEURL = 'http://www.astro.princeton.edu/~semyeong/etgpublic'
-TABLEURL = BASEURL+'/db.csv'
-imgdir = BASEURL+'/image/'
-profdir = BASEURL+'/profile/'
+
+APPNAME = "PrettyGalaxies"
+STATIC_FOLDER = 'example'
+TABLE_FILE = "example/images/fakecatalog.csv"
+
+table = read_table(TABLE_FILE)
+pager = Pager(len(table))
+
+
+app = Flask(__name__, static_folder=STATIC_FOLDER)
+app.config.update(
+    APPNAME=APPNAME,
+    )
 
 
 @app.route('/')
 def index():
     return redirect('/0')
 
+
 @app.route('/<int:ind>/')
 def image_view(ind=None):
-    d = read_table(TABLEURL)
-    pager = Pager(len(d))
     if ind >= pager.count:
-        return "invalid index", 404
+        return render_template("404.html"), 404
     else:
         pager.current = ind
         return render_template(
-                'imageview.html',
-                ind=ind,
-                imgdir=imgdir,
-                profdir=profdir,
-                pager=pager, **d[ind])
+            'imageview.html',
+            index=ind,
+            pager=pager,
+            data=table[ind])
+
 
 @app.route('/goto', methods=['POST', 'GET'])    
 def goto():
-    # error = None
-    # if request.method == 'POST':
     return redirect('/' + request.form['index'])
+
 
 if __name__ == '__main__':
     app.run(debug=True)

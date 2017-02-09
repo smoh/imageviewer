@@ -1,93 +1,11 @@
-<div class="col-sm-4">
-  <table class="table table-condensed table-striped">
-    <tbody>
-        <tr>
-          <td>IAUNAME</td>
-          <td>{{IAUNAME[:7]}}</td>
-        </tr>
-        <tr>
-            <td>Z</td>
-            <td>{{Z}}</td>
-        </tr>
-        <tr>
-            <td>sigma (km/s)</td>
-            <td>{{Sigma}}</td>
-        </tr>
-        <tr>
-            <td>CutoutSizeDeg</td>
-            <td>{{CutoutSizeDeg}}</td>
-        </tr>
-        <tr>
-            <td>CutoutFracArea</td>
-            <td>{{CutoutFracArea}}</td>
-        </tr>
-        <tr class="info">
-          <td>FlagStamp</td>
-          <td>{{FlagStamp}}</td>
-        </tr>
-        <tr class="info">
-          <td>FlagInvalidFit</td>
-          <td>{{FlagInvalidFit}}</td>
-        </tr>
-        <tr class="info">
-          <td>FlagDoubleComp</td>
-          <td>{{FlagDoubleComp}}</td>
-        </tr>
-    </tbody>
-</table>
-
-</div>
-
-<div class="col-sm-6">
-<table class="table table-condensed table-striped">
-<thead>
-  <th></th>
-  <th>Ser</th>
-  <th>deV</th>
-  <th>Exp</th>
-</thead>
+<table class="table table-striped">
   <tbody>
+    {% for key in ["name", "ra", "dec", "notes"] %}
     <tr>
-      <th>n</th>
-      <td>{{'%.2f' % (Ser_n | float)}}</td>
-      <td>4</td>
-      <td>1</td>
+      <td><b>{{ key|e|capitalize }}</b></td>
+      <td>{{ data[key]|e }}</td>
     </tr>
-    <tr>
-      <th>Mag</th>
-      <td>{{Ser_Mag}}</td>
-      <td>{{deVExp_Mag_deV}}</td>
-      <td>{{deVExp_Mag_Exp}}</td>
-    </tr>
-    <tr>
-      <th>Re</th>
-      <td>{{Ser_Re}}</td>
-      <td>{{deVExp_Re_deV}}</td>
-      <td>{{deVExp_Re_Exp}}</td>
-    </tr>
-    <tr>
-      <th>q</th>
-      <td>{{Ser_q}}</td>
-      <td>{{deVExp_q_deV}}</td>
-      <td>{{deVExp_q_Exp}}</td>
-    </tr>
-    <tr>
-      <th>chisq</th>
-      <td class="{{"info" if Ser_chi2<deVExp_chi2 else ""}}">{{Ser_chi2}}</td>
-      <td colspan="2" class="{{"info" if Ser_chi2>deVExp_chi2 else ""}}">{{deVExp_chi2}}</td>
-    </tr>
-    <tr>
-      <th>B/T</th>
-      <td></td>
-      <td colspan="2">{{deVExp_BT}}</td>
-    </tr>
-    <tr>
-      <th>Rcross</th>
-      <td></td>
-      <td colspan="2">{{deVExp_Rcross}}</td>
-    </tr>
+    {% endfor %}
   </tbody>
 </table>
-  
-</div>
 

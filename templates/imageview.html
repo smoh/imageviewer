@@ -1,45 +1,39 @@
-{% extends "layout.html" %} {% block content %}
-<div class="container" style="width:100%;">
-    <div class="row" style="background-color: #E6E6E6; margin-bottom:10px;">
-        <div class="col-sm-4">
-            <form class="form-inline" name="goto" action="/goto" method="POST">
-                Go to index:
-                <input type="text" name="index">
-                <button type="submit">Go</button>
-            </form>
-        </div>
-        <div class="col-sm-8">
-            <ul class="list-inline">
-                <li><a href="/">home</a>
-                </li>
-                <li><a href="/{{pager.prev}}">prev</a> </li>
-                <li><a href="/{{pager.next}}">next</a> </li>
-                {% include 'links.html' %}
-                <!-- TODO -->
-                <li><a data-toggle="popover" title="README" data-content="readme">readme</a></li>
-            </ul>
-        </div>
+{% extends "layout.html" %}
 
+{% block title %}{{ data.name}} {% endblock %}
+
+{% block content %}
+<div class="container" style="width:100%;">
+
+  <nav class="navbar">
+    <div class="navbar-header">
+      
+    <span class="navbar-brand">{{ config.APPNAME }}</span>
     </div>
-    <div class="row">
-        <div class="col-md-5">
-            <img src="{{profdir}}{{'%03i' % (ind)}}_{{IAUNAME}}.png" class="img-responsive" alt="">
-        </div>
-        <div class="col-md-7">
-            <div class="row">
-                {% include 'table.html' %}
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <img src="{{imgdir}}{{'%03i' % (ind)}}_{{IAUNAME}}.png" alt="" class="img-responsive">
-                </div>
-            </div>
-        </div>
+    <form class="navbar-form navbar-left" role="search" name="goto" action="/goto" method="POST">
+      <div class="form-group">
+        <input type="text" name="index" class="form-control" placeholder="Go to index">
+      </div>
+      <button type="Go" class="btn btn-default">Go</button>
+    </form>
+    <ul class="nav navbar-nav">
+      <li><a href="/">home</a></li>
+      <li><a href="/{{pager.prev}}">&larr;</a> </li>
+      <li><a href="/{{pager.next}}">&rarr;</a> </li>
+      {% include 'links.html' %}
+    </ul>
+  </nav>
+
+  <div class="row">
+    <div class="col-md-6">
+      <img src="{{ url_for('static', filename='images/'+data.name+'.jpg') }}" class="img-responsive center-block" alt="">
     </div>
+    <div class="col-md-6">
+      <h2>{{data.name}}</h2>
+      {% include 'table.html' %}
+    </div>
+  </div>
+
 </div>
-<script>
-    $(function () {
-  $('[data-toggle="popover"]').popover()
-})
-</script>
+
 {% endblock %}
