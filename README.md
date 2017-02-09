@@ -7,7 +7,7 @@ This is a web-based image viewer for that.
 It is a tiny [flask](http://flask.pocoo.org/) app, built with [bootstrap](http://getbootstrap.com/),
 which will display images and their meta information from a table with pagination.
 
-**NOTE:** This app was built to run locally for my own convenience and
+WARNING:** This app was built to run locally for my own convenience and
 to be shared with a small number of collaborators. In `app.py`, the entire table is
 loaded into a global variable `table`. This can be problematic if the table is large,
 and the app receives a lot of traffic, as it will load the data for every process.
