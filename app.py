@@ -13,7 +13,7 @@ def read_table(url):
 
 APPNAME = "PrettyGalaxies"
 STATIC_FOLDER = 'example'
-TABLE_FILE = "example/images/fakecatalog.csv"
+TABLE_FILE = "example/fakecatalog.csv"
 
 table = read_table(TABLE_FILE)
 pager = Pager(len(table))

@@ -4,8 +4,8 @@ Do you have a bunch of images with meta information that you would like to go th
 
 This is a web-based image viewer for that.
 
-It is a tiny [flask](http://flask.pocoo.org/) app, build with [bootstrap](http://getbootstrap.com/),
-which will display images and their meta information in a table, with pagination.
+It is a tiny [flask](http://flask.pocoo.org/) app, built with [bootstrap](http://getbootstrap.com/),
+which will display images and their meta information from a table with pagination.
 
 **NOTE:** This app was built to run locally for my own convenience and
 to share with a small number of collaborators. In `app.py`, the entire table is
