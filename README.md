@@ -8,8 +8,8 @@ It is a tiny [flask](http://flask.pocoo.org/) app, built with [bootstrap](http:/
 which will display images and their meta information from a table with pagination.
 
 **NOTE:** This app was built to run locally for my own convenience and
-to share with a small number of collaborators. In `app.py`, the entire table is
-loaded to a global variable `table`. This can be problematic if the table is large,
+to be shared with a small number of collaborators. In `app.py`, the entire table is
+loaded into a global variable `table`. This can be problematic if the table is large,
 and the app receives a lot of traffic, as it will load the data for every process.
 You'll want to setup a proper database. See
 
@@ -20,9 +20,10 @@ You'll want to setup a proper database. See
 ## Test out
 
 Do
-```shell
+```sh
 git clone 
-conda env create    # setup environment specified in environment.yml
+conda env create    # will create viewer conda environment specified in environment.yml
+source activate viewer
 python app.py
 ```
 and point your browser to `localhost:5000`.
@@ -32,4 +33,4 @@ like this:
 ![](screenshot.png)
 
 Configure static file paths in `app.py` and modify templates in `templates/`
-according to your needs. Flask uses the [jinja](http://jinja.pocoo.org/) template engine.
+according to your needs. [Flask](http://flask.pocoo.org/) uses the [jinja](http://jinja.pocoo.org/) template engine.
