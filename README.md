@@ -21,7 +21,8 @@ You'll want to setup a proper database. See
 
 Do
 ```sh
-git clone 
+git clone https://github.com/smoh/imageviewer
+cd imageviewer
 conda env create    # will create viewer conda environment specified in environment.yml
 source activate viewer
 python app.py
