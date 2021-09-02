@@ -1,8 +1,8 @@
 name: viewer
 
 dependencies:
-- python=2.7
+- python=3
 - pip:
-  - flask==0.12
-  - requests==2.13.0
+  - flask
+  - requests
 
