@@ -1,8 +1,8 @@
 # packages in environment at /Users/semyeong/anaconda/envs/webapp:
 #
 
-flask==0.10.1
-gunicorn==19.1.0
-jinja2==2.7.3
-werkzeug==0.9.6
-requests==2.5.0
+flask
+gunicorn
+jinja2
+werkzeug
+requests
