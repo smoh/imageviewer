@@ -35,7 +35,3 @@ like this:
 
 Configure static file paths in `app.py` and modify templates in `templates/`
 according to your needs. [Flask](http://flask.pocoo.org/) uses the [jinja](http://jinja.pocoo.org/) template engine.
-
-
-## To do (maybe?)
-- example for updating comments
