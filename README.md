@@ -23,9 +23,7 @@ Do
 ```sh
 git clone https://github.com/smoh/imageviewer
 cd imageviewer
-conda env create    # will create viewer conda environment specified in environment.yml
-source activate viewer
-python app.py
+docker-compose up --build
 ```
 and point your browser to `localhost:5000`.
 This will show images inside `example/images/` directory with the related information in `fakecatalog.csv`
