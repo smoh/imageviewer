@@ -19,13 +19,26 @@ You'll want to setup a proper database. See
 
 ## Test out
 
-Do
+You can either run in a new conda environment or use docker.
+
+1. Create a new conda environment to install required packages locally:
+
+```sh
+git clone https://github.com/smoh/imageviewer
+cd imageviewer
+conda env create    # will create 'viewer' environment specified in environment.yml
+source activate viewer
+python app.py
+```
+
+2. Use [docker](https://www.docker.com/):
 ```sh
 git clone https://github.com/smoh/imageviewer
 cd imageviewer
 docker-compose up --build
 ```
-and point your browser to `localhost:5000`.
+
+Once the app is running, point your browser to `localhost:5000`.
 This will show images inside `example/images/` directory with the related information in `fakecatalog.csv`
 like this:
 
